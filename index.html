@@ -889,6 +889,37 @@ nav a:hover {
     grid-template-columns: 1fr;
   }
 }
+    .docs-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.doc-card {
+  background-color: rgba(23, 24, 43, 0.85);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 25px;
+  width: 100%;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.doc-card h3 {
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.doc-card p {
+  color: #d0d0d0;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.doc-botones {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
   </style>
 </head>
 <body>
@@ -906,6 +937,7 @@ nav a:hover {
       <a href="#schedule">Schedule</a>
       <a href="#experience">Experience</a>
       <a href="#venue">Venue</a>
+      <a href="#documentation">Documentation</a>
       <a href="miembros.html">Miembros</a>
     </nav>
 
@@ -1086,6 +1118,25 @@ nav a:hover {
         <div class="zona zona-merch">Merchandising</div>
         <div class="zona zona-primeros">Primeros auxilios</div>
         <div class="zona zona-salida">Salida</div>
+      </div>
+    </div>
+  </div>
+</section>
+  <section class="seccion" id="documentation">
+  <div class="contenedor">
+    <div class="titulo-seccion">
+      <h2>Documentation</h2>
+      <p>Aquí puedes consultar y descargar la documentación principal del proyecto de BALAM FEST.</p>
+    </div>
+
+    <div class="docs-grid">
+      <div class="doc-card">
+        <h3>Documentación del festival</h3>
+        <p>Archivo PDF con la información del proyecto, organización del festival y contenido de la Tarea 1.</p>
+        <div class="doc-botones">
+          <a href="Festival.pdf" target="_blank" class="boton-principal">Abrir PDF</a>
+          <a href="Festival.pdf" download class="boton-secundario">Descargar</a>
+        </div>
       </div>
     </div>
   </div>
