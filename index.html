@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi réplica festival</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+  font-family: 'Inter', sans-serif;
+  color: white;
+  background:
+    radial-gradient(circle at top left, rgba(157, 78, 221, 0.20), transparent 30%),
+    radial-gradient(circle at top right, rgba(80, 180, 255, 0.12), transparent 25%),
+    radial-gradient(circle at bottom center, rgba(199, 125, 255, 0.10), transparent 30%),
+    #0a0b14;
+}
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(10, 11, 20, 0.75);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+    .logo {
+        display: flex;
+  align-items: center;
+    }
+    .logo img {
+  height: 58px;
+  width: auto;
+  display: block;
+}
+
+    nav a {
+      margin-left: 25px;
+      font-size: 16px;
+    }
+
+    .hero {
+  padding: 80px 0;
+  min-height: 85vh;
+  background: linear-gradient(135deg, #0a0b14 0%, #17182b 50%, #24153c 100%);
+}
+
+    .hero-texto {
+      width: 55%;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background-color: rgba(255,255,255,0.08);
+      color: #d0d0d0;
+      padding: 10px 16px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .hero-texto h1 {
+      font-size: 72px;
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+
+    .gradiente {
+      color: #c77dff;
+    }
+
+    .hero-texto p {
+      font-size: 20px;
+      color: #cfcfcf;
+      max-width: 650px;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .botones {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 35px;
+    }
+
+    .boton-principal {
+      display: inline-block;
+      background-color: #9d4edd;
+      color: white;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .boton-secundario {
+      display: inline-block;
+      border: 1px solid #666;
+      color: white;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .estadisticas {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      background-color: rgba(255,255,255,0.06);
+      padding: 18px;
+      border-radius: 14px;
+      min-width: 140px;
+    }
+
+    .stat h3 {
+      font-size: 28px;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .stat p {
+      font-size: 14px;
+      color: #cccccc;
+      margin: 0;
+    }
+
+    .hero-imagen {
+  width: 40%;
+  height: 550px;
+  border-radius: 24px;
+  background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.5)),
+    url('imagenes/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+    .tarjeta-flotante {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(10, 11, 20, 0.85);
+      padding: 20px;
+      border-radius: 18px;
+      width: 280px;
+    }
+
+    .tarjeta-flotante h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .tarjeta-flotante p {
+      font-size: 15px;
+      color: #d0d0d0;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .seccion {
+      padding: 70px 50px;
+    }
+
+    .seccion h2 {
+      font-size: 40px;
+      margin-bottom: 25px;
+    }
+
+    .tarjetas {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .tarjeta {
+      background-color: #17182b;
+      padding: 20px;
+      border-radius: 16px;
+      width: 300px;
+    }
+
+    .tarjeta h4 {
+      margin-bottom: 10px;
+      color: #c77dff;
+      font-size: 22px;
+    }
+
+    .tarjeta p {
+      color: #cccccc;
+      line-height: 1.5;
+    }
+
+    footer {
+      background-color: #11111d;
+      padding: 30px 50px;
+      text-align: center;
+      color: #aaaaaa;
+    }
+
+    @media (max-width: 900px) {
+  header {
+    padding: 18px 0;
+  }
+
+  nav {
+  display: none;
+}
+
+.boton-header {
+  display: none;
+}
+
+.header-contenido {
+  justify-content: center;
+}
+
+  .hero {
+    padding: 50px 0;
+    min-height: auto;
+  }
+
+  .hero-contenido {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-texto,
+  .hero-imagen {
+    width: 100%;
+  }
+
+  .hero-texto h1 {
+    font-size: 48px;
+  }
+
+  .hero-texto p {
+    font-size: 18px;
+  }
+
+  .hero-imagen {
+    height: 380px;
+  }
+
+  .botones,
+  .estadisticas,
+  .lineup-grid,
+  .tickets-grid,
+  .schedule-grid,
+  .galeria,
+  .experience-grid,
+  .footer-contenido {
+    flex-direction: column;
+  }
+
+  .artista,
+  .ticket,
+  .schedule-card,
+  .experience-card,
+  .galeria img,
+  .footer-columna {
+    width: 100%;
+  }
+
+  .tarjeta-flotante {
+    width: calc(100% - 40px);
+  }
+
+  .titulo-seccion h2 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-texto h1 {
+    font-size: 38px;
+  }
+
+  .etiqueta {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .botones a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .stat {
+    width: 100%;
+  }
+
+  .precio {
+    font-size: 34px;
+  }
+
+  .titulo-seccion h2 {
+    font-size: 28px;
+  }
+
+  .footer-mejorado {
+    padding: 40px 0;
+  }
+}
+    .lineup-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.artista {
+  background-color: rgba(23, 24, 43, 0.85);
+  border-radius: 18px;
+  overflow: hidden;
+  width: calc(25% - 15px);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 1100px) {
+  .artista {
+    width: calc(33.333% - 14px);
+  }
+}
+
+@media (max-width: 768px) {
+  .artista {
+    width: 100%;
+  }
+}
+
+.artista {
+  background-color: rgba(23, 24, 43, 0.85);
+  border-radius: 18px;
+  overflow: hidden;
+  width: 300px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.artista img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.artista-info {
+  padding: 18px;
+}
+
+.artista-info h4 {
+  font-size: 22px;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.artista-info p {
+  color: #cfcfcf;
+  line-height: 1.5;
+}
+.tickets-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.ticket {
+  background-color: rgba(23, 24, 43, 0.85);
+  border-radius: 18px;
+  padding: 25px;
+  width: 300px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.ticket-destacado {
+  background: linear-gradient(135deg, rgba(42, 24, 63, 0.95), rgba(23, 24, 43, 0.92));
+  border: 1px solid #9d4edd;
+  box-shadow: 0 14px 35px rgba(157, 78, 221, 0.18);
+}
+
+.ticket span {
+  display: inline-block;
+  margin-bottom: 15px;
+  background-color: rgba(255,255,255,0.08);
+  color: #d6d6d6;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+.ticket h3 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.precio {
+  font-size: 42px;
+  font-weight: bold;
+  color: #c77dff;
+  margin-bottom: 18px;
+}
+
+.ticket p {
+  color: #cfcfcf;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.schedule-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.schedule-card {
+  background-color: rgba(23, 24, 43, 0.85);
+  border-radius: 18px;
+  padding: 25px;
+  width: 300px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.schedule-card span {
+  display: inline-block;
+  margin-bottom: 15px;
+  background-color: rgba(255,255,255,0.08);
+  color: #d6d6d6;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+.schedule-card h3 {
+  font-size: 26px;
+  margin-bottom: 18px;
+}
+
+.hora {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 12px 0;
+  color: #cfcfcf;
+}
+
+.hora:last-child {
+  border-bottom: none;
+}
+.galeria {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.galeria img {
+  width: 360px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+}
+
+.experience-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.experience-card {
+  background-color: rgba(23, 24, 43, 0.85);
+  border-radius: 18px;
+  padding: 25px;
+  width: 300px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.experience-card h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.experience-card p {
+  color: #cfcfcf;
+  line-height: 1.6;
+}
+.footer-mejorado {
+  background-color: rgba(17, 17, 29, 0.9);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 50px 0;
+  margin-top: 40px;
+}
+
+.footer-contenido {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.footer-columna {
+  width: 220px;
+}
+
+.footer-columna h3,
+.footer-columna h4 {
+  margin-bottom: 15px;
+}
+
+.footer-columna h3 {
+  color: #b65cff;
+  font-size: 24px;
+}
+
+.footer-columna h4 {
+  color: white;
+  font-size: 18px;
+}
+
+.footer-columna p,
+.footer-columna a {
+  color: #bfbfbf;
+  line-height: 1.8;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.footer-columna a:hover {
+  color: #c77dff;
+}
+
+.footer-final {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: 30px;
+  padding-top: 20px;
+  text-align: center;
+  color: #9f9f9f;
+  font-size: 14px;
+}
+.boton-principal,
+.boton-secundario,
+.artista,
+.ticket,
+.schedule-card,
+.experience-card {
+  transition: 0.3s;
+}
+
+.boton-principal:hover {
+  background-color: #b65cff;
+  transform: translateY(-2px);
+}
+
+.boton-secundario:hover {
+  background-color: rgba(255,255,255,0.08);
+  transform: translateY(-2px);
+}
+
+.artista:hover,
+.ticket:hover,
+.schedule-card:hover,
+.experience-card:hover {
+  transform: translateY(-6px);
+}
+html {
+  scroll-behavior: smooth;
+}
+@media (max-width: 768px) {
+  header {
+    padding: 18px 20px;
+  }
+
+  .hero {
+    padding: 50px 20px;
+    min-height: auto;
+  }
+
+  .hero-texto h1 {
+    font-size: 42px;
+  }
+
+  .hero-texto p {
+    font-size: 18px;
+  }
+
+  .hero-imagen {
+    height: 360px;
+  }
+
+  .botones,
+  .estadisticas,
+  .lineup-grid,
+  .tickets-grid,
+  .schedule-grid,
+  .galeria,
+  .experience-grid,
+  .footer-contenido {
+    flex-direction: column;
+  }
+
+  .artista,
+  .ticket,
+  .schedule-card,
+  .experience-card,
+  .galeria img,
+  .footer-columna {
+    width: 100%;
+  }
+
+  .seccion {
+    padding: 50px 20px;
+  }
+
+  .tarjeta-flotante {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(10, 11, 20, 0.78);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 18px;
+  width: 280px;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.30);
+}
+}
+.contenedor {
+  width: min(100% - 40px, 1200px);
+  margin: 0 auto;
+}
+.hero-contenido {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+.seccion {
+  padding: 80px 0;
+}
+
+.titulo-seccion {
+  margin-bottom: 30px;
+}
+
+.titulo-seccion h2 {
+  font-size: 42px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.titulo-seccion p {
+  color: #cfcfcf;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+.titulo-seccion h2::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 4px;
+  margin-top: 12px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #9d4edd, #c77dff);
+}
+section {
+  scroll-margin-top: 90px;
+}
+.header-contenido {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  min-height: 78px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #c77dff;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+nav a {
+  color: #d8d8d8;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: white;
+}
+
+.boton-header {
+  padding: 12px 20px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.checkout-box {
+  background-color: rgba(23, 24, 43, 0.85);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.resumen-compra {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+}
+
+.resumen-compra h3 {
+  margin-bottom: 12px;
+  font-size: 24px;
+}
+
+.resumen-compra p {
+  margin-bottom: 8px;
+  color: #d6d6d6;
+}
+
+.form-compra {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-compra label {
+  font-weight: 600;
+  color: white;
+}
+
+.form-compra input,
+.form-compra select,
+.form-compra textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background-color: rgba(255,255,255,0.06);
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+}
+
+.form-compra input::placeholder,
+.form-compra textarea::placeholder {
+  color: #bfbfbf;
+}
+
+.form-compra select {
+  color: white;
+}
+
+.form-compra option {
+  color: black;
+}
+
+.form-compra textarea {
+  resize: vertical;
+}
+
+.mensaje-compra {
+  margin-top: 20px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  background-color: rgba(157, 78, 221, 0.12);
+  border: 1px solid rgba(157, 78, 221, 0.35);
+  color: #f0dfff;
+  display: none;
+}
+#precio-final {
+  font-size: 24px;
+  font-weight: 800;
+  color: #c77dff;
+}
+.venue-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.venue-card {
+  background-color: rgba(23, 24, 43, 0.85);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.venue-card h3 {
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.venue-mapa {
+  width: calc(60% - 10px);
+}
+
+.venue-mapa img {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+}
+
+.venue-info {
+  width: calc(40% - 10px);
+}
+
+.venue-info p {
+  color: #d0d0d0;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.plano-recinto {
+  margin-top: 10px;
+}
+
+.plano-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.zona {
+  padding: 22px 16px;
+  border-radius: 16px;
+  text-align: center;
+  font-weight: 700;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.zona-entrada { background: rgba(70, 130, 180, 0.35); }
+.zona-vip { background: rgba(157, 78, 221, 0.35); }
+.zona-escenario { background: rgba(255, 99, 71, 0.35); }
+.zona-food { background: rgba(255, 165, 0, 0.35); }
+.zona-banos { background: rgba(60, 179, 113, 0.35); }
+.zona-merch { background: rgba(255, 20, 147, 0.30); }
+.zona-primeros { background: rgba(220, 20, 60, 0.30); }
+.zona-salida { background: rgba(100, 149, 237, 0.30); }
+
+@media (max-width: 900px) {
+  .venue-mapa,
+  .venue-info {
+    width: 100%;
+  }
+
+  .plano-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .plano-grid {
+    grid-template-columns: 1fr;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <header>
+  <div class="contenedor header-contenido">
+    <div class="logo">
+  <img src="imagenes/logo.png" alt="Balam Fest">
+</div>
+
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#lineup">Lineup</a>
+      <a href="#tickets">Tickets</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#experience">Experience</a>
+      <a href="#venue">Venue</a>
+      <a href="miembros.html">Miembros</a>
+    </nav>
+
+    <a href="#tickets" class="boton-principal boton-header">Comprar entradas</a>
+  </div>
+</header>
+
+  <section class="hero" id="inicio">
+    <div class="contenedor hero-contenido">
+    <div class="hero-texto">
+      <div class="etiqueta">18–20 julio · Tulum, México · Playa · Música en vivo</div>
+
+      <h1><span class="gradiente">BALAM FEST</span><br>2026</h1>
+
+      <p>
+        Esta ya es una estructura mucho más parecida a una landing moderna.
+        Ahora tienes un bloque principal potente con texto, botones, estadísticas
+        e imagen destacada.
+      </p>
+
+      <div class="botones">
+        <a href="#" class="boton-principal">Comprar entradas</a>
+        <a href="#" class="boton-secundario">Ver lineup</a>
+      </div>
+
+      <div class="estadisticas">
+        <div class="stat">
+          <h3>40+</h3>
+          <p>artistas invitados</p>
+        </div>
+
+        <div class="stat">
+          <h3>3</h3>
+          <p>días de festival</p>
+        </div>
+
+        <div class="stat">
+          <h3>2</h3>
+          <p>escenarios</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-imagen">
+      <div class="tarjeta-flotante">
+        <h3>Summer Opening</h3>
+        <p>
+          Descuento en la entrada general de los 3 días.
+        </p>
+        <a href="#tickets" class="boton-principal">Promo</a>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="lineup">
+  <div class="contenedor">
+    <div class="titulo-seccion">
+      <h2>Lineup</h2>
+      <p>Descubre algunos de los artistas principales del festival y el estilo musical que marcará cada escenario.</p>
+    </div>
+
+    <div class="lineup-grid">
+      <div class="artista">
+        <img src="imagenes/coldplay.jpg" alt="Coldplay">
+        <div class="artista-info">
+          <h4>Coldplay</h4>
+          <p>Pop stadium · Día 1</p>
+        </div>
+      </div>
+
+      <div class="artista">
+        <img src="imagenes/drake.jpg" alt="Drake">
+        <div class="artista-info">
+          <h4>Drake</h4>
+          <p>Global urban · Día 1</p>
+        </div>
+      </div>
+
+      <div class="artista">
+        <img src="imagenes/pitbull.jpg" alt="Pitbull">
+        <div class="artista-info">
+          <h4>Pitbull</h4>
+          <p>Party anthem · Día 1</p>
+        </div>
+      </div>
+
+      <div class="artista">
+        <img src="imagenes/kanye.jpg" alt="Ye">
+        <div class="artista-info">
+          <h4>Ye</h4>
+          <p>Hip hop icon · Día 1</p>
+        </div>
+      </div>
+
+      <div class="artista">
+        <img src="imagenes/marc-anthony.jpg" alt="Marc Anthony">
+        <div class="artista-info">
+          <h4>Marc Anthony</h4>
+          <p>Salsa latina · Día 2</p>
+        </div>
+      </div>
+
+      <div class="artista">
+        <img src="imagenes/rauw-alejandro.jpg" alt="Rauw Alejandro">
+        <div class="artista-info">
+          <h4>Rauw Alejandro</h4>
+          <p>Caribe urbano · Día 2</p>
+        </div>
+      </div>
+
+      <div class="artista">
+        <img src="imagenes/bad-bunny.jpg" alt="Bad Bunny">
+        <div class="artista-info">
+          <h4>Bad Bunny</h4>
+          <p>Latin global · Día 2</p>
+        </div>
+      </div>
+
+      <div class="artista">
+        <img src="imagenes/david-bisbal.jpg" alt="David Bisbal">
+        <div class="artista-info">
+          <h4>David Bisbal</h4>
+          <p>Pop español · Día 3</p>
+        </div>
+      </div>
+
+      <div class="artista">
+        <img src="imagenes/rosalia.jpg" alt="Rosalía">
+        <div class="artista-info">
+          <h4>Rosalía</h4>
+          <p>Vanguardia flamenca · Día 3</p>
+        </div>
+      </div>
+
+      <div class="artista">
+        <img src="imagenes/tainy.jpg" alt="Tainy">
+        <div class="artista-info">
+          <h4>Tainy</h4>
+          <p>Producer showcase · Festival set</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="seccion" id="venue">
+  <div class="contenedor">
+    <div class="titulo-seccion">
+      <h2>Venue</h2>
+      <p>Descubre dónde se celebra BALAM FEST, cómo llegar al recinto y cómo se distribuyen las principales zonas del festival.</p>
+    </div>
+
+    <div class="venue-grid">
+      <div class="venue-card venue-mapa">
+        <h3>Mapa del lugar</h3>
+        <img src="imagenes/mapa-venue.jpg" alt="Mapa del recinto de Balam Fest">
+      </div>
+
+      <div class="venue-card venue-info">
+        <h3>Cómo llegar</h3>
+        <p><strong>Ubicación:</strong> zona de playa de Tulum, cerca del área de KAN Tulum.</p>
+        <p><strong>Desde Tulum centro:</strong> acceso en taxi, coche privado o transporte local hacia la zona hotelera/playa.</p>
+        <p><strong>Desde el aeropuerto de Cancún:</strong> traslado por carretera hacia Tulum y acceso final al recinto por la zona costera.</p>
+        <p><strong>Recomendación:</strong> llegar con antelación, especialmente en horas punta de acceso al festival.</p>
+        <p><strong>Check-in recomendado:</strong> si dispones de entrada Platino con hotel incluido, la referencia de alojamiento es KAN Tulum.</p>
+      </div>
+    </div>
+
+    <div class="venue-card plano-recinto">
+      <h3>Plano del sitio</h3>
+
+      <div class="plano-grid">
+        <div class="zona zona-entrada">Entrada principal</div>
+        <div class="zona zona-vip">Zona VIP</div>
+        <div class="zona zona-escenario">Escenario principal</div>
+        <div class="zona zona-food">Food & Drinks</div>
+        <div class="zona zona-banos">Baños</div>
+        <div class="zona zona-merch">Merchandising</div>
+        <div class="zona zona-primeros">Primeros auxilios</div>
+        <div class="zona zona-salida">Salida</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="seccion" id="tickets">
+  <div class="contenedor">
+    <div class="titulo-seccion">
+  <h2>Tickets</h2>
+  <p>Elige el tipo de entrada que mejor se adapte a tu experiencia, desde acceso general hasta una opción premium.</p>
+</div>
+
+    <div class="tickets-grid">
+      <div class="ticket">
+        <span>General</span>
+        <h3>Day Pass</h3>
+        <div class="precio">149€</div>
+        <p>Acceso para un día</p>
+        <p>Zona general</p>
+        <p>Entrada digital</p>
+        <a href="#checkout" class="boton-secundario" onclick="seleccionarEntrada('General', '149€')">Seleccionar</a>
+      </div>
+
+      <div class="ticket ticket-destacado">
+        <span>Popular</span>
+        <h3>Weekend Pass</h3>
+        <div class="precio">449€</div>
+        <p>Acceso para los 3 días</p>
+        <p>Fast lane</p>
+        <p>Merch pack</p>
+        <a href="#checkout" class="boton-principal" onclick="seleccionarEntrada('Weekend Pass', '449€')">Comprar ahora</a>
+      </div>
+
+      <div class="ticket">
+        <span>VIP</span>
+        <h3>VIP Experience</h3>
+        <div class="precio">899€</div>
+        <p>Zona VIP exclusiva</p>
+        <p>Acceso prioritario</p>
+        <p>Experiencia premium</p>
+        <a href="#checkout" class="boton-secundario" onclick="seleccionarEntrada('VIP Experience', '899€')">Seleccionar</a>
+      </div>
+      <div class="ticket ticket-destacado">
+  <span>Platino</span>
+  <h3>Platino Experience</h3>
+  <div class="precio">1499€</div>
+  <p>Todo lo incluido en la entrada VIP</p>
+  <p>Meet & greet con artistas</p>
+  <p>Hotel KAN Tulum incluido</p>
+  <p>3 noches durante el festival</p>
+  <a href="#checkout" class="boton-principal" onclick="seleccionarEntrada('Platino Experience', '1499€')">Comprar ahora</a>
+</div>
+    <section class="seccion" id="checkout">
+  <div class="contenedor">
+    <div class="titulo-seccion">
+      <h2>Compra de boletos</h2>
+      <p>Completa tus datos para simular la compra de tu entrada para BALAM FEST.</p>
+    </div>
+
+    <div class="checkout-box">
+  <div class="resumen-compra">
+    <h3>Resumen de compra</h3>
+    <p><strong>Tipo de entrada:</strong> <span id="entrada-seleccionada">Ninguna seleccionada</span></p>
+    <p><strong>Precio unitario:</strong> <span id="precio-seleccionado">--</span></p>
+    <p><strong>Precio final:</strong> <span id="precio-final">--</span></p>
+  </div>
+
+  <form id="form-compra" class="form-compra">
+    <label for="tipo-entrada">Tipo de entrada</label>
+    <select id="tipo-entrada" name="tipo-entrada" required>
+      <option value="">Selecciona una entrada</option>
+      <option value="General">General</option>
+      <option value="Weekend Pass">Weekend Pass</option>
+      <option value="VIP Experience">VIP Experience</option>
+      <option value="Platino Experience">Platino Experience</option>
+    </select>
+
+    <label for="nombre">Nombre completo</label>
+    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+
+    <label for="email">Correo electrónico</label>
+    <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+
+    <label for="telefono">Teléfono</label>
+    <input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000" required>
+
+    <label for="cantidad">Cantidad de boletos</label>
+    <select id="cantidad" name="cantidad" required>
+      <option value="">Selecciona una cantidad</option>
+      <option value="1">1 boleto</option>
+      <option value="2">2 boletos</option>
+      <option value="3">3 boletos</option>
+      <option value="4">4 boletos</option>
+    </select>
+
+    <label for="comentarios">Comentarios</label>
+    <textarea id="comentarios" name="comentarios" rows="4" placeholder="Indica aquí cualquier detalle adicional..."></textarea>
+
+    <button type="submit" class="boton-principal">Finalizar compra</button>
+  </form>
+
+  <div id="mensaje-compra" class="mensaje-compra"></div>
+</div>
+    </div>
+  </div>
+</section>
+<section class="seccion" id="schedule">
+  <div class="contenedor">
+    <div class="titulo-seccion">
+      <h2>Schedule</h2>
+      <p>Consulta la programación completa de BALAM FEST y descubre cómo se desarrolla cada día del festival.</p>
+    </div>
+
+    <div class="schedule-grid">
+      <div class="schedule-card">
+        <span>Día 1 · Pop Stadium</span>
+        <h3>Viernes</h3>
+
+        <div class="hora">
+          <strong>17:00 – 17:45</strong>
+          <p>Apertura de puertas + warm up de Tainy</p>
+        </div>
+
+        <div class="hora">
+          <strong>18:00 – 19:15</strong>
+          <p>Coldplay</p>
+        </div>
+
+        <div class="hora">
+          <strong>19:45 – 21:00</strong>
+          <p>Pitbull</p>
+        </div>
+
+        <div class="hora">
+          <strong>21:30 – 23:00</strong>
+          <p>Drake</p>
+        </div>
+
+        <div class="hora">
+          <strong>23:30 – 01:00</strong>
+          <p>Kanye / Ye</p>
+        </div>
+
+        <div class="hora">
+          <strong>01:00 – 02:00</strong>
+          <p>Tainy Closing Set</p>
+        </div>
+      </div>
+
+      <div class="schedule-card">
+        <span>Día 2 · Caribe Urbano</span>
+        <h3>Sábado</h3>
+
+        <div class="hora">
+          <strong>17:00 – 17:40</strong>
+          <p>Apertura + Tainy Tropical Opening</p>
+        </div>
+
+        <div class="hora">
+          <strong>18:00 – 19:00</strong>
+          <p>Marc Anthony</p>
+        </div>
+
+        <div class="hora">
+          <strong>19:30 – 20:45</strong>
+          <p>Rauw Alejandro</p>
+        </div>
+
+        <div class="hora">
+          <strong>21:15 – 22:45</strong>
+          <p>Bad Bunny</p>
+        </div>
+
+        <div class="hora">
+          <strong>23:15 – 00:00</strong>
+          <p>Bloque conjunto dirigido por Tainy</p>
+        </div>
+
+        <div class="hora">
+          <strong>00:15 – 02:00</strong>
+          <p>Tainy Caribbean Closing Party</p>
+        </div>
+      </div>
+
+      <div class="schedule-card">
+        <span>Día 3 · Flamenco Pop</span>
+        <h3>Domingo</h3>
+
+        <div class="hora">
+          <strong>17:00 – 17:40</strong>
+          <p>Apertura + intro de Tainy</p>
+        </div>
+
+        <div class="hora">
+          <strong>18:00 – 19:30</strong>
+          <p>David Bisbal</p>
+        </div>
+
+        <div class="hora">
+          <strong>20:00 – 21:30</strong>
+          <p>Rosalía</p>
+        </div>
+
+        <div class="hora">
+          <strong>22:00 – 22:45</strong>
+          <p>Bloque fusión dirigido por Tainy</p>
+        </div>
+
+        <div class="hora">
+          <strong>23:00 – 23:45</strong>
+          <p>David Bisbal Hits Finales</p>
+        </div>
+
+        <div class="hora">
+          <strong>00:10 – 01:20</strong>
+          <p>Rosalía Closing Show</p>
+        </div>
+
+        <div class="hora">
+          <strong>01:20 – 02:00</strong>
+          <p>Tainy despedida</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="seccion" id="experience">
+  <div class="contenedor">
+    <div class="titulo-seccion">
+      <h2>Experience</h2>
+      <p>Más allá de la música, el festival combina ubicación, gastronomía y diseño visual para crear una experiencia completa.</p>
+    </div>
+
+    <div class="galeria">
+      <img src="imagenes/dia1.jpg" alt="Día 1 del festival">
+      <img src="imagenes/dia2.jpg" alt="Día 2 del festival">
+      <img src="imagenes/dia3.jpg" alt="Día 3 del festival">
+    </div>
+
+    <div class="experience-grid">
+      <div class="experience-card">
+        <h3>Día 1 · Pop Stadium</h3>
+        <p>Una apertura épica con producción masiva, himnos globales y una energía de gran espectáculo internacional.</p>
+      </div>
+
+      <div class="experience-card">
+        <h3>Día 2 · Caribe Urbano</h3>
+        <p>Una noche cálida, latina y explosiva, con ritmo tropical, reggaetón, salsa y estética de fiesta premium.</p>
+      </div>
+
+      <div class="experience-card">
+        <h3>Día 3 · Cierre Emocional</h3>
+        <p>Una clausura artística y sofisticada con una mezcla de pop español, fuerza escénica y vanguardia flamenca.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-mejorado">
+  <div class="footer-contenido">
+    <div class="footer-columna">
+      <h3>BALAM FEST</h3>
+      <p>Un festival de música electrónica y cultura urbana.</p>
+    </div>
+
+    <div class="footer-columna">
+      <h4>Navegación</h4>
+      <a href="#">Inicio</a>
+      <a href="#">Lineup</a>
+      <a href="#">Tickets</a>
+      <a href="#">Schedule</a>
+    </div>
+
+    <div class="footer-columna">
+      <h4>Festival</h4>
+      <a href="#">Venue</a>
+      <a href="#">FAQ</a>
+      <a href="#">Contacto</a>
+    </div>
+
+    <div class="footer-columna">
+      <h4>Redes</h4>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+
+  <div class="footer-final">
+    © 2026 Balam Fest. Todos los derechos reservados.
+  </div>
+</footer>
+<script>
+  const preciosEntradas = {
+    "General": 49,
+    "Weekend Pass": 119,
+    "VIP Experience": 249,
+    "Platino Experience": 1499
+  };
+
+  function actualizarResumenCompra() {
+    const tipoEntrada = document.getElementById("tipo-entrada").value;
+    const cantidad = parseInt(document.getElementById("cantidad").value) || 0;
+
+    const entradaSeleccionada = document.getElementById("entrada-seleccionada");
+    const precioSeleccionado = document.getElementById("precio-seleccionado");
+    const precioFinal = document.getElementById("precio-final");
+
+    if (!tipoEntrada || !preciosEntradas[tipoEntrada]) {
+      entradaSeleccionada.textContent = "Ninguna seleccionada";
+      precioSeleccionado.textContent = "--";
+      precioFinal.textContent = "--";
+      return;
+    }
+
+    const precioUnitario = preciosEntradas[tipoEntrada];
+    const total = cantidad > 0 ? precioUnitario * cantidad : 0;
+
+    entradaSeleccionada.textContent = tipoEntrada;
+    precioSeleccionado.textContent = precioUnitario + "€";
+    precioFinal.textContent = total > 0 ? total + "€" : "--";
+  }
+
+  function seleccionarEntrada(nombre, precio) {
+    document.getElementById("tipo-entrada").value = nombre;
+    actualizarResumenCompra();
+  }
+
+  document.getElementById("tipo-entrada").addEventListener("change", actualizarResumenCompra);
+  document.getElementById("cantidad").addEventListener("change", actualizarResumenCompra);
+
+  document.getElementById("form-compra").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const tipoEntrada = document.getElementById("tipo-entrada").value;
+    const cantidad = document.getElementById("cantidad").value;
+    const nombre = document.getElementById("nombre").value;
+    const mensaje = document.getElementById("mensaje-compra");
+
+    if (!tipoEntrada) {
+      mensaje.style.display = "block";
+      mensaje.textContent = "Debes seleccionar un tipo de entrada.";
+      return;
+    }
+
+    if (!cantidad) {
+      mensaje.style.display = "block";
+      mensaje.textContent = "Debes seleccionar una cantidad de boletos.";
+      return;
+    }
+
+    const total = preciosEntradas[tipoEntrada] * parseInt(cantidad);
+
+    mensaje.style.display = "block";
+    mensaje.textContent = "Compra simulada realizada correctamente. " + nombre + ", has seleccionado " + cantidad + " entrada(s) de tipo " + tipoEntrada + " por un total de " + total + "€.";
+
+    this.reset();
+    document.getElementById("entrada-seleccionada").textContent = "Ninguna seleccionada";
+    document.getElementById("precio-seleccionado").textContent = "--";
+    document.getElementById("precio-final").textContent = "--";
+  });
+</script>
+</body>
+</html>
